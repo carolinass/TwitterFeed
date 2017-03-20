@@ -1,0 +1,21 @@
+{
+  "name": "twitter-feed",
+  "description": "Simple Twitter feed built with AngularJS.",
+  "main": "index.js",
+  "authors": [
+    "Carolina Cabral"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/carolinass/TwitterFeed",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-material": "^1.1.3"
+  }
+}

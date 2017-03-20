@@ -1,0 +1,22 @@
+{
+  "name": "twitter-feed",
+  "version": "1.0.0",
+  "description": "Simple Twitter feed built with AngularJS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carolinass/TwitterFeed.git"
+  },
+  "author": "Carolina Cabral",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carolinass/TwitterFeed/issues"
+  },
+  "homepage": "https://github.com/carolinass/TwitterFeed#readme",
+  "dependencies": {
+    "bower": "^1.8.0"
+  }
+}
