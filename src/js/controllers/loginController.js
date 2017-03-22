@@ -5,7 +5,7 @@ app.controller("LoginCtrl", [ '$http', function($http) {
 	self.cb = new Codebird;
 
 	self.codebirdAuthentication = function() {
-		self.cb.setConsumerKey("wzEitURo1AULbXdhtR0Rcd0SP", "3BWRa2oeqMI3VV6zkk6fDu110GPVygwGwkuGNabfueIkonKveQ");
+		self.cb.setConsumerKey(YOUR_API_KEY, YOUR_API_SECRET);
 		// gets a request token
 		self.cb.__call(
 		    "oauth_requestToken",
