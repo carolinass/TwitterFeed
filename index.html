@@ -2,23 +2,27 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>Twitter Feed</title>
 	</head>
-	<body>
+	<body ng-app="TwitterFeed">
 		<div id="wrapper">
-			<header>
-				<nav>
-			
-				</nav>	
-			</header>	
-
-			<article class="feed">
-			
-			</article>
-
-			<footer>
-				
-			</footer>
+			<header ui-view="header"></header>
+			<article ui-view="main"></article>
+			<footer ui-view="footer"></footer>
 		</div>
+
+		<!-- Dependencies -->
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/codebird-js/codebird.js"></script>
+    	<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+		<!-- App Scripts -->
+		<script type="text/javascript" src="src/js/app.js"></script>
+		<script type="text/javascript" src="src/js/config/routes.js"></script>
+
+		<!-- Controllers -->
+		<script type="text/javascript" src="src/js/controllers/loginController.js"></script>
+
 	</body>
 </html>
