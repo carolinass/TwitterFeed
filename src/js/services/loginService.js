@@ -1,7 +1,5 @@
 "use strict";
 
-var app = angular.module('TwitterFeed');
-
 /**
  * A service to login, logout, post twitter, get twitter feed and check auth status.
  *

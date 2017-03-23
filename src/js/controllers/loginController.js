@@ -1,7 +1,5 @@
 "use strict";
 
-var app = angular.module('TwitterFeed');
-
 app.controller("LoginCtrl", [ '$http', '$state', '$localStorage', 'LoginService', 
 		function($http, $state, $localStorage, LoginService) {
 
@@ -62,6 +60,13 @@ app.controller("LoginCtrl", [ '$http', '$state', '$localStorage', 'LoginService'
 		        }
 		    }
 		);
+	};
+
+	self.signOut = function() {
+		$localStorage.isAuthenticated = false;
+		$localStorage.oauth_token = undefined;
+		$localStorage.oauth_token_secret = undefined;
+		$state.go('login');
 	};
 
 }]);

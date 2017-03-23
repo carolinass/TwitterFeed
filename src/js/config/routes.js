@@ -1,7 +1,5 @@
 'use strict';
 
-var app = angular.module('TwitterFeed');
-
 app.config( [ '$stateProvider', '$urlRouterProvider', function ( $stateProvider, $urlRouterProvider ) {
     $stateProvider
         .state( 'base', {

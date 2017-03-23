@@ -1,36 +1,54 @@
-<article class="twitter-feed container">
-	<h3>Feed</h3>
-	<div class="row">
-		<section class="col-md-12 home-user">
-			<div class="media user-box">
-			  	<div class="media-left">
-				    <a href="#">
-				      <img  class="media-object" 
-				      		ng-src="{{ctrl.user.profile_image_url}}" 
-				      		alt="User profile">
-				    </a>
-			  	</div>
-				<div class="media-body">
-					<textarea class="form-control" placeholder="What's happening?"></textarea>
+<article class="twitter-feed container-fluid">
+	<section class="user-banner"
+		back-img={{ctrl.user.profile_banner_url}}>
+	</section>
+	<section class="container">
+		<h3>Feed</h3>
+		<section class="row home-user">
+			<div class="col-md-12">
+				<div class="media user-box">
+				  	<div class="media-left">
+					    <a href="#">
+					      <img  class="media-object" 
+					      		ng-src="{{ctrl.user.profile_image_url}}" 
+					      		alt="User profile">
+					    </a>
+				  	</div>
+					<div class="media-body">
+						<textarea class="form-control"
+							ng-model="ctrl.newTweet" 
+							ng-focus="ctrl.setUserTypingStatus(true)"
+							ng-blur="ctrl.setUserTypingStatus(false)"
+							placeholder="What's happening?"
+							maxlength="140">
+						</textarea>
+						<a href 
+							ng-if="ctrl.newTweetIsValid()"
+							class="btn btn-primary btn-tweet" 
+							ng-click="ctrl.setPinNumber()"> 
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+							<span>Tweet</span>
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
-	</div>
-	<div class="row">
-		<section class="col-md-12 home-timeline">
-			<div class="media single-tweet-box" ng-repeat="tweet in ctrl.feed">
-			  	<div class="media-left">
-				    <a href="#">
-				      <img  class="media-object" 
-				      		ng-src="{{tweet.user.profile_image_url}}" 
-				      		alt="User profile">
-				    </a>
-			  	</div>
-				<div class="media-body">
-					<h4 class="media-heading" ng-bind="tweet.user.name"></h4>
-					<p ng-bind="tweet.text"></p>
+		<section class="row home-timeline">
+			<div class="col-md-12">
+				<div class="media single-tweet-box" ng-repeat="tweet in ctrl.feed">
+				  	<div class="media-left">
+					    <a href="#">
+					      <img  class="media-object" 
+					      		ng-src="{{tweet.user.profile_image_url}}" 
+					      		alt="User profile">
+					    </a>
+				  	</div>
+					<div class="media-body">
+						<h4 class="media-heading" ng-bind="tweet.user.name"></h4>
+						<p ng-bind="tweet.text"></p>
+					</div>
 				</div>
 			</div>
 		</section>
-	</div>
+	</section>
 </article>

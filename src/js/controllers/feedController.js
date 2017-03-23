@@ -1,13 +1,13 @@
 "use strict";
 
-var app = angular.module('TwitterFeed');
-
 app.controller("FeedCtrl", [ '$http', '$state', '$localStorage', '$rootScope', 
 		function($http, $state, $localStorage, $rootScope) {
 
 	var self = this;
 
 	self.cb = new Codebird;
+	self.userIsTyping = false;
+	self.newTweet = "";
 
 	self.loadFeed = function() {
 		self.cb.setConsumerKey(YOUR_API_KEY, YOUR_API_SECRET);
@@ -44,6 +44,14 @@ app.controller("FeedCtrl", [ '$http', '$state', '$localStorage', '$rootScope',
 		        self.newTweet = "";
 		    }
 		);
+	};
+
+	self.setUserTypingStatus = function(status) {
+		self.userIsTyping = status;
+	};
+
+	self.newTweetIsValid = function() {
+		return (self.newTweet.length > 0 || self.userIsTyping);
 	};
 
 }]);
