@@ -54,12 +54,10 @@ app.controller("LoginCtrl", [ '$http', '$state', '$localStorage', 'LoginService'
 		            console.log("error response or timeout exceeded" + err.error);
 		        }
 		        if (reply) {
-		            // store the authenticated token, which may be different from the request token (!)
-		            console.log("Vou recarregar");
 		            self.cb.setToken(reply.oauth_token, reply.oauth_token_secret);
-		            $localStorage.isAuthenticated = true;
-                    $localStorage.cb = angular.copy(self.cb);
-                    console.log("Guardar o CB", $localStorage.cb);
+                    $localStorage.oauth_token = reply.oauth_token;
+                    $localStorage.oauth_token_secret = reply.oauth_token_secret;
+                    $localStorage.isAuthenticated = true;
                     $state.go('feed');
 		        }
 		    }
