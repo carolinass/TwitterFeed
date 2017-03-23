@@ -7,7 +7,14 @@
 			</a>
 		</div>
 		<div class="navbar-text navbar-right">
-			<span class="navbar-link" ng-click="ctrl.codebirdAuthentication()">Sign in</span>
+			<span ng-if="!ctrl.isAuthenticated()" 
+				class="navbar-link" 
+				ng-click="ctrl.codebirdAuthentication()"> Sign in
+			</span>
+			<span ng-if="ctrl.isAuthenticated()" 
+				class="navbar-link" 
+				ng-click=""> Sign Out
+			</span>
 		</div>
 	</div>
 </nav>

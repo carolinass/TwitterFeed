@@ -24,6 +24,18 @@ app.controller("FeedCtrl", [ '$http', '$state', '$localStorage', '$rootScope',
 	};
 	self.loadFeed();
 
+	self.loadUser = function() {
+		self.cb.__call(
+		    "account_verifyCredentials",
+		    {},
+		    function (reply) {
+		    	console.log(reply);
+		    	$rootScope.$apply(self.user = reply);
+		    }
+		);
+	};
+	self.loadUser();
+
 	self.postTweet = function() {
 		self.cb.__call(
 		    "statuses_update",

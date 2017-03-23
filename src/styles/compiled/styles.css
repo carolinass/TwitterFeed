@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,700");
 body {
-  font-family: "Rubik", sans-serif; }
+  font-family: "Rubik", sans-serif;
+  background-color: #F5F8FA; }
 
 .centralize {
   display: flex;
@@ -105,4 +106,29 @@ footer {
 
 .twitter-feed {
   padding-top: 70px;
+  padding-bottom: 50px;
   min-height: 600px; }
+  .twitter-feed img {
+    border-radius: 5px; }
+  .twitter-feed .home-user {
+    margin-top: 20px; }
+    .twitter-feed .home-user .user-box {
+      padding: 10px;
+      background-color: #E8F4F9;
+      border: 1px solid #E6ECF0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      margin: 0; }
+      .twitter-feed .home-user .user-box .media-body {
+        vertical-align: middle; }
+        .twitter-feed .home-user .user-box .media-body textarea {
+          height: 40px; }
+        .twitter-feed .home-user .user-box .media-body textarea:focus {
+          vertical-align: top;
+          height: 100px; }
+  .twitter-feed .home-timeline .single-tweet-box {
+    padding: 10px;
+    border: 1px solid #E6ECF0;
+    border-radius: 0;
+    background-color: #FFFFFF;
+    margin: 0; }

@@ -1,4 +1,44 @@
 .twitter-feed {
 	padding-top: 70px;
+	padding-bottom: 50px;
 	min-height: 600px;
+
+	& img {
+		border-radius: 5px;
+	}
+
+	& .home-user {
+		margin-top: 20px;
+		& .user-box {
+			padding: 10px;
+			background-color: #E8F4F9;
+			border: 1px solid #E6ECF0;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			margin: 0;
+
+			.media-body {
+				vertical-align: middle;
+
+				& textarea {
+					height: 40px;
+				}
+
+				& textarea:focus {
+					vertical-align: top;
+					height: 100px;
+				}
+			}
+		}
+	}
+
+	& .home-timeline {
+		& .single-tweet-box {
+			padding: 10px;
+			border: 1px solid #E6ECF0;
+			border-radius: 0;
+			background-color: #FFFFFF;
+			margin: 0;
+		}
+	}
 }
