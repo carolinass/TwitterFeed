@@ -1,26 +1,69 @@
-app.controller("LoginCtrl", [ '$http', '$state', 'LoginService', function($http, $state, LoginService) {
+"use strict";
+
+var app = angular.module('TwitterFeed');
+
+app.controller("LoginCtrl", [ '$http', '$state', '$localStorage', 'LoginService', 
+		function($http, $state, $localStorage, LoginService) {
 
 	var self = this;
 
-	self.isAuthenticated = function() {
-		return LoginService.isAuthenticated();
-	};
+	self.cb = new Codebird;
+	self.pinIsRequired = false;
 
-	self.pinIsRequired = function() {
-		console.log("check");
-		return LoginService.pinIsRequired();
+	self.isAuthenticated = function() {
+		return $localStorage.isAuthenticated;
 	};
 
 	self.codebirdAuthentication = function() {
-		LoginService.codebirdAuthentication();
-	};
+		self.cb.setConsumerKey(YOUR_API_KEY, YOUR_API_SECRET);
+        
+        // gets a request token
+		self.cb.__call(
+		    "oauth_requestToken",
+		    {oauth_callback: "oob"},
+		    function (reply,rate,err) {
+		        if (err) {
+		            console.log("error response or timeout exceeded" + err.error);
+		        }
+		        if (reply) {
+		            // stores it
+		            self.cb.setToken(reply.oauth_token, reply.oauth_token_secret);
 
-	self.loadFeed = function() {
-		LoginService.loadFeed();
+		            // gets the authorize screen URL
+		            self.cb.__call(
+		                "oauth_authorize",
+		                {},
+		                function (auth_url) {
+		                    window.codebird_auth = window.open(auth_url);
+		                }
+		            );
+		        }
+		    }
+		);
+
+        self.pinIsRequired = true;
+        
 	};
 
 	self.setPinNumber = function() {
-		LoginService.setPinNumber();
+		self.cb.__call(
+		    "oauth_accessToken",
+		    {oauth_verifier: self.pin},
+		    function (reply,rate,err) {
+		        if (err) {
+		            console.log("error response or timeout exceeded" + err.error);
+		        }
+		        if (reply) {
+		            // store the authenticated token, which may be different from the request token (!)
+		            console.log("Vou recarregar");
+		            self.cb.setToken(reply.oauth_token, reply.oauth_token_secret);
+		            $localStorage.isAuthenticated = true;
+                    $localStorage.cb = angular.copy(self.cb);
+                    console.log("Guardar o CB", $localStorage.cb);
+                    $state.go('feed');
+		        }
+		    }
+		);
 	};
 
 }]);

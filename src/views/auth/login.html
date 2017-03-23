@@ -1,9 +1,7 @@
 <article class="welcome container">
 	<div class="row full-height centralize">
 
-		<p>{{localStorage}}</p>
-
-		<div ng-if="!ctrl.pinIsRequired() && !ctrl.isAuthenticated()" class="col-md-offset-7 col-md-5 text-center">
+		<div ng-if="!ctrl.pinIsRequired" class="col-md-offset-7 col-md-5 text-center">
 			<h1>Share your life</h1>
 			<h2>The best way to share moments on Twitter</h2>
 			<button class="btn btn-lg btn-primary" ng-click="ctrl.codebirdAuthentication()">
@@ -12,7 +10,7 @@
 			</button>
 		</div>
 
-		<div ng-if="ctrl.pinIsRequired() && !ctrl.isAuthenticated()" class="col-md-12 text-center">
+		<div ng-if="ctrl.pinIsRequired" class="col-md-12 text-center">
 			<div class="jumbotron">
 				<h3>Enter your PIN</h3>
 				<form action="">
@@ -24,7 +22,7 @@
 							ng-model="ctrl.pin" 
 							placeholder="PIN NUMBER">
 					</div>
-					<button class="btn btn-secundary" ng-click="ctrl.setPinNumber()">Verify</button>
+					<a href class="btn btn-secundary" ng-click="ctrl.setPinNumber()">Verify</a>
 				</form>
 			</div>
 		</div>

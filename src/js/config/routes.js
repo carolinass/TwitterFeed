@@ -37,6 +37,8 @@ app.config( [ '$stateProvider', '$urlRouterProvider', function ( $stateProvider,
             views: {
                 main: {
                     templateUrl: 'src/views/pages/feed.html',
+                    controller: 'FeedCtrl',
+                    controllerAs: 'ctrl'
                 }
             }
         } );
