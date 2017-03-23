@@ -1,0 +1,9 @@
+footer {
+	width: 100%;
+	background-color: black;
+	color: $footer-font-color;
+
+	& > div {
+		height: 50px;
+	}
+}

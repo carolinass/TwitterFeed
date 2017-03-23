@@ -1,0 +1,29 @@
+.btn-primary {
+    background-color: transparent;
+    border-width: 2px;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+
+    &:hover, .btn:hover, .btn:focus, .btn.focus {
+        color: #FFFFFF;
+        border-color: #FFFFFF;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    & i {
+        margin-right: 10px;
+    }
+}
+
+.btn-secundary {
+	background-color: #FFFFFF;
+    border-width: 1px;
+    border-color: #FFFFFF;
+    color: #381c3a;
+    font-weight: 500;
+
+    &:hover, .btn:hover, .btn:focus, .btn.focus {
+        border-color: #b5b9bb;
+        background-color: #b5b9bb;
+    }	
+}
