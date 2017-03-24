@@ -15,20 +15,30 @@
 					    </a>
 				  	</div>
 					<div class="media-body">
-						<textarea class="form-control"
-							ng-model="ctrl.newTweet" 
-							ng-focus="ctrl.setUserTypingStatus(true)"
-							ng-blur="ctrl.setUserTypingStatus(false)"
-							placeholder="What's happening?"
-							maxlength="140">
-						</textarea>
-						<a href 
-							ng-if="ctrl.newTweetIsValid()"
-							class="btn btn-primary btn-tweet" 
-							ng-click="ctrl.setPinNumber()"> 
-							<i class="fa fa-twitter" aria-hidden="true"></i>
-							<span>Tweet</span>
-						</a>
+						<form novalidate name="tweetForm">
+							<div class="form-group">
+								<textarea elastic 
+									class="form-control"
+									name="tweetArea"
+									ng-class="{ 'has-error' : tweetForm.tweetArea.$error.maxlength && !tweetForm.tweetArea.$pristine }"
+									ng-model="ctrl.newTweet" 
+									placeholder="What's happening?"
+									ng-maxlength="140"
+									ng-required="true">
+								</textarea>
+								<p class="help-block"
+									ng-show="tweetForm.tweetArea.$error.maxlength && !tweetForm.tweetArea.$pristine">
+									Max length is 140 characters.
+								</p>
+								<button
+									ng-disabled="tweetForm.tweetArea.$invalid"
+									class="btn btn-primary btn-tweet" 
+									ng-click="ctrl.postTweet()"> 
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+									<span>Tweet</span>
+								</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

@@ -7,14 +7,16 @@
  * @static
  * @param {Object} $http
  */
-app.service('LoginService', ['$http', '$localStorage', function($http, $localStorage) {
+app.service('LoginService', ['$http', '$localStorage', '$rootScope', '$state', 'toastr',
+    function($http, $localStorage, $rootScope, $state, toastr) {
 
 	var self = this;
+    self.cb = new Codebird;
 
-    self.codebirdAuthentication = function(cb) {
-        cb.setConsumerKey(YOUR_API_KEY, YOUR_API_SECRET);
+    self.codebirdAuthentication = function() {
+        self.cb.setConsumerKey(YOUR_API_KEY, YOUR_API_SECRET);
         // gets a request token
-        cb.__call(
+        self.cb.__call(
             "oauth_requestToken",
             {oauth_callback: "oob"},
             function (reply,rate,err) {
@@ -24,16 +26,15 @@ app.service('LoginService', ['$http', '$localStorage', function($http, $localSto
                 }
                 if (reply) {
                     // stores it
-                    cb.setToken(reply.oauth_token, reply.oauth_token_secret);
+                    self.cb.setToken(reply.oauth_token, reply.oauth_token_secret);
 
                     // gets the authorize screen URL
-                    return cb.__call(
+                    self.cb.__call(
                         "oauth_authorize",
                         {},
                         function (auth_url) {
                             window.codebird_auth = window.open(auth_url);
-                            $localStorage.cb = cb;
-                            return true;
+                            $rootScope.$apply($localStorage.pinIsRequired = true);
                         }
                     );
                 }
@@ -41,34 +42,28 @@ app.service('LoginService', ['$http', '$localStorage', function($http, $localSto
         );
     };
 
-    self.loadFeed = function(cb) {
-        cb.__call(
-            "statuses_homeTimeline",
-            {},
-            function (reply, rate, err) {
-                console.log(reply);
-                console.log(err);
+    self.setPinNumber = function(pin) {
+        self.cb.__call(
+            "oauth_accessToken",
+            {oauth_verifier: pin},
+            function (reply,rate,err) {
+                if (reply.httpstatus === 200) {
+                    self.cb.setToken(reply.oauth_token, reply.oauth_token_secret);
+                    $localStorage.oauth_token = reply.oauth_token;
+                    $localStorage.oauth_token_secret = reply.oauth_token_secret;
+                    $localStorage.isAuthenticated = true;
+                    $state.go('feed');
+                } else {
+                    $rootScope.$apply($localStorage.pinIsRequired = true);
+                    toastr.error('Something went wrong :(', 'Ooops!');
+                    $state.reload();
+                }
             }
         );
     };
 
-    self.setPinNumber = function(cb) {
-        return cb.__call(
-            "oauth_accessToken",
-            {oauth_verifier: self.pin},
-            function (reply,rate,err) {
-                if (err) {
-                    console.log("error response or timeout exceeded" + err.error);
-                    return false;
-                }
-                if (reply) {
-                    // store the authenticated token, which may be different from the request token (!)
-                    cb.setToken(reply.oauth_token, reply.oauth_token_secret);
-                    $localStorage.isAutheticated = true;
-                    $localStorage.cb = cb;
-                    return cb;
-                }
-            }
-        );
+    self.pinIsRequired = function() {
+        return $localStorage.pinIsRequired;
     };
+
 }]);

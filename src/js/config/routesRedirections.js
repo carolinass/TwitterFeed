@@ -5,6 +5,7 @@ app.run(['$rootScope', '$state', '$localStorage', function($rootScope, $state, $
         if ($localStorage.isAuthenticated) {
             $state.go("feed");
         } else {
+            $localStorage.pinIsRequired = false;
             $state.go("login");
         }
     });
@@ -13,7 +14,9 @@ app.run(['$rootScope', '$state', '$localStorage', function($rootScope, $state, $
         if (toState.name === "login"){
             if ($localStorage.isAuthenticated) {
                 $state.go("feed");
-            }    
+            } else {
+                $localStorage.pinIsRequired = false;
+            }
         }
     });
 }]);

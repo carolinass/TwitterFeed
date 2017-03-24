@@ -98,7 +98,8 @@ footer {
     font-size: 1.4em;
     font-weight: 300; }
   .welcome .jumbotron {
-    background: rgba(0, 0, 0, 0.5); }
+    background: rgba(0, 0, 0, 0.5);
+    max-width: 600px; }
   .welcome .form-control {
     background: transparent;
     border: 1px solid #FFFFFF;
@@ -110,8 +111,7 @@ footer {
   .twitter-feed img {
     border-radius: 5px; }
   .twitter-feed .user-banner {
-    width: 100%;
-    height: 300px; }
+    width: 100%; }
   .twitter-feed .home-user {
     margin-top: 20px; }
     .twitter-feed .home-user .user-box {
@@ -121,16 +121,11 @@ footer {
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       margin: 0; }
-      .twitter-feed .home-user .user-box .media-body {
-        vertical-align: middle; }
-        .twitter-feed .home-user .user-box .media-body textarea {
-          min-height: 40px;
-          height: 100%; }
-        .twitter-feed .home-user .user-box .media-body textarea:focus {
-          vertical-align: top;
-          height: 100px; }
-        .twitter-feed .home-user .user-box .media-body .btn-tweet {
-          margin-top: 10px; }
+      .twitter-feed .home-user .user-box .media-body textarea {
+        height: 100%;
+        vertical-align: top; }
+      .twitter-feed .home-user .user-box .media-body .btn-tweet {
+        margin-top: 10px; }
   .twitter-feed .home-timeline .single-tweet-box {
     padding: 10px;
     border: 1px solid #E6ECF0;
