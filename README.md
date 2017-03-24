@@ -4,7 +4,8 @@ Simple Twitter feed built with AngularJS.
 
 Install
 ------------
- - First, install the dependencies:
+ - Download or fork this repository;
+ - Install the dependencies:
 ```
 	$ npm install
 ```
