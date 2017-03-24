@@ -1,5 +1,8 @@
 "use strict";
 
+/**
+ * Directive to dinamically set a background image to a div.
+ **/
 app.directive('backImg', function(){
     return function(scope, element, attrs){
         attrs.$observe('backImg', function(url) {

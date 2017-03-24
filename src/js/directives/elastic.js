@@ -1,5 +1,8 @@
 "use strict";
 
+/**
+ * Directive to dinamically set the height of a textarea.
+ **/
 app.directive('elastic', [
     '$timeout',
     function($timeout) {

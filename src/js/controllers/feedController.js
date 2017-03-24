@@ -1,7 +1,20 @@
 "use strict";
 
+/**
+ * Controls the feed page.
+ *
+ * @namespace tweetit.js.controllers
+ * @class     FeedCtrl
+ * @constructor
+ * @param {Object} $http
+ * @param {Object} $state
+ * @param {Object} $localStorage
+ * @param {Object} $rootScope
+ * @param {Object} toastr
+ *
+ **/
 app.controller("FeedCtrl", [ '$http', '$state', '$localStorage', '$rootScope', 'toastr',
-		function($http, $state, $localStorage, $rootScope, toastr) {
+	function($http, $state, $localStorage, $rootScope, toastr) {
 
 	var self = this;
 
@@ -10,6 +23,9 @@ app.controller("FeedCtrl", [ '$http', '$state', '$localStorage', '$rootScope', '
 	self.newTweet = "";
 	self.feed = [];
 
+	/**
+	 * Load the user's home timeline
+	 **/
 	self.loadFeed = function() {
 		self.feed = [];
 		self.cb.setConsumerKey(YOUR_API_KEY, YOUR_API_SECRET);
@@ -24,6 +40,9 @@ app.controller("FeedCtrl", [ '$http', '$state', '$localStorage', '$rootScope', '
 	};
 	self.loadFeed();
 
+	/**
+	 * Load the user object
+	 **/
 	self.loadUser = function() {
 		self.cb.__call(
 		    "account_verifyCredentials",
@@ -35,6 +54,9 @@ app.controller("FeedCtrl", [ '$http', '$state', '$localStorage', '$rootScope', '
 	};
 	self.loadUser();
 
+	/**
+	 * Post a new tweet
+	 **/
 	self.postTweet = function() {
 		self.postTweetPromise = self.cb.__call(
 		    "statuses_update",
@@ -50,17 +72,6 @@ app.controller("FeedCtrl", [ '$http', '$state', '$localStorage', '$rootScope', '
 		        }
 		    }
 		);
-	};
-
-	self.setUserTypingStatus = function(status) {
-		self.userIsTyping = status;
-	};
-
-	self.newTweetIsValid = function() {
-		if (typeof self.newTweet !== undefined)
-			if(self.newTweet.length > 0)
-				return true;
-		return false;
 	};
 
 }]);

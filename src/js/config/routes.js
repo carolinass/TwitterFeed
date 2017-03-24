@@ -1,5 +1,15 @@
 'use strict';
-
+/**
+ * Configures the application's routing system.
+ *
+ * @namespace tweetit
+ * @param {Object} $stateProvider     A ui.router module's provider to control routing
+ *                                    states. It is used here to configure the routes.
+ * @param {Object} $urlRouterProvider A ui.router module's provider responsible to
+ *                                    watching $location. It is used here to redirect
+ *                                    the user to a default route if the accessed route
+ *                                    is invalid.
+ **/
 app.config( [ '$stateProvider', '$urlRouterProvider', function ( $stateProvider, $urlRouterProvider ) {
     $stateProvider
         .state( 'base', {

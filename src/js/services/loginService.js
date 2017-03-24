@@ -6,6 +6,10 @@
  * @class     LoginService
  * @static
  * @param {Object} $http
+ * @param {Object} $localStorage
+ * @param {Object} $rootScope
+ * @param {Object} $state
+ * @param {Object} toastr
  */
 app.service('LoginService', ['$http', '$localStorage', '$rootScope', '$state', 'toastr',
     function($http, $localStorage, $rootScope, $state, toastr) {
@@ -13,6 +17,9 @@ app.service('LoginService', ['$http', '$localStorage', '$rootScope', '$state', '
 	var self = this;
     self.cb = new Codebird;
 
+    /**
+     * Request a authenticated token.
+     **/
     self.codebirdAuthentication = function() {
         self.cb.setConsumerKey(YOUR_API_KEY, YOUR_API_SECRET);
         // gets a request token
@@ -42,6 +49,9 @@ app.service('LoginService', ['$http', '$localStorage', '$rootScope', '$state', '
         );
     };
 
+    /**
+     * Sends the PIN to complete authorization proccess.
+     **/
     self.setPinNumber = function(pin) {
         self.cb.__call(
             "oauth_accessToken",
@@ -60,10 +70,6 @@ app.service('LoginService', ['$http', '$localStorage', '$rootScope', '$state', '
                 }
             }
         );
-    };
-
-    self.pinIsRequired = function() {
-        return $localStorage.pinIsRequired;
     };
 
 }]);
