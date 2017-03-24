@@ -5,10 +5,10 @@ Simple Twitter feed built with AngularJS.
 Install
 ------------
  - First, install the dependencies:
-```
+```shell
 	npm install
 ```
-```
+```shell
 	bower install
 ``` 
  - Create a new application on twitter (https://apps.twitter.com/);
@@ -17,7 +17,7 @@ Install
  Run the Application
 ------------
  - Run the server.
-```
+```shell
 	gulp run
 ```
 
