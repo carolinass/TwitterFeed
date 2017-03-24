@@ -3,7 +3,6 @@
 /**
  * Controls the feed page.
  *
- * @namespace tweetit.js.controllers
  * @class     FeedCtrl
  * @constructor
  * @param {Object} $http

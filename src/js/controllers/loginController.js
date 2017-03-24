@@ -3,7 +3,6 @@
 /**
  * Controls the login page.
  *
- * @namespace tweetit.js.controllers
  * @class     LoginCtrl
  * @constructor
  * @param {Object} $http
