@@ -14,8 +14,8 @@
 		margin-top: 20px;
 		& .user-box {
 			padding: 10px;
-			background-color: #E8F4F9;
-			border: 1px solid #E6ECF0;
+			background-color: $user-box-back;
+			border: 1px solid $feed-border;
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
 			margin: 0;
@@ -37,9 +37,9 @@
 	& .home-timeline {
 		& .single-tweet-box {
 			padding: 10px;
-			border: 1px solid #E6ECF0;
+			border: 1px solid $feed-border;
 			border-radius: 0;
-			background-color: #FFFFFF;
+			background-color: $tweet-box-back;
 			margin: 0;
 		}
 	}

@@ -24,14 +24,14 @@ body {
     margin-right: 10px; }
 
 .btn-secundary {
-  background-color: #FFFFFF;
+  background-color: #B5B9BB;
   border-width: 1px;
   border-color: #FFFFFF;
-  color: #381c3a;
+  color: #381C3A;
   font-weight: 500; }
   .btn-secundary:hover, .btn-secundary .btn:hover, .btn-secundary .btn:focus, .btn-secundary .btn.focus {
-    border-color: #b5b9bb;
-    background-color: #b5b9bb; }
+    border-color: #B5B9BB;
+    background-color: #381C3A; }
 
 .material-navbar {
   height: 70px;

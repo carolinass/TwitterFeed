@@ -10,12 +10,12 @@
     -o-background-size: cover;
 
     h1 {
-        color: #FFFFFF;
+        color: $login-font-color;
         font-size: 6em;
     }
 
     h2 {
-        color: #FFFFFF;
+        color: $login-font-color;
         font-size: 1.4em;
         font-weight: 300;
         margin-top: 10px;
@@ -23,13 +23,13 @@
     }
 
     h3 {
-        color: #FFFFFF;
+        color: $login-font-color;
         font-size: 3em;
         font-weight: 500;
     }
 
     label {
-        color: #FFFFFF;
+        color: $login-font-color;
         font-size: 1.4em;
         font-weight: 300;   
     }
@@ -41,7 +41,7 @@
 
     .form-control {
         background: transparent;
-        border: 1px solid #FFFFFF;
-        color: #FFFFFF;
+        border: 1px solid $btn-leading-border;
+        color: $btn-leading-color;
     }
 }

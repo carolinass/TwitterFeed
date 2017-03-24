@@ -29,3 +29,10 @@ gulp.task( 'sass-styles', function ( ) {
             .on( 'error', sass.logError ) )
         .pipe( gulp.dest( paths.devCompiledCssPath ) );
 } );
+
+gulp.task( 'sass-styles:watch', function ( ) {
+    gulp.start( 'sass-styles' );
+    gulp.watch(
+        paths.styles, [ 'sass-styles' ]
+    );
+} );

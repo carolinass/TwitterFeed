@@ -1,12 +1,12 @@
 .btn-leading {
     background-color: transparent;
     border-width: 2px;
-    border-color: #FFFFFF;
-    color: #FFFFFF;
+    border-color: $btn-leading-border;
+    color: $btn-leading-color;
 
     &:hover, .btn:hover, .btn:focus, .btn.focus {
-        color: #FFFFFF;
-        border-color: #FFFFFF;
+        color: $btn-leading-color;
+        border-color: $btn-leading-border;
         background-color: rgba(0, 0, 0, 0.3);
     }
 
@@ -16,14 +16,14 @@
 }
 
 .btn-secundary {
-	background-color: #FFFFFF;
+	background-color: $btn-secundary-hover-back;
     border-width: 1px;
-    border-color: #FFFFFF;
-    color: #381c3a;
+    border-color: $btn-secundary-border;
+    color: $btn-secundary-hover-color;
     font-weight: 500;
 
     &:hover, .btn:hover, .btn:focus, .btn.focus {
-        border-color: #b5b9bb;
-        background-color: #b5b9bb;
+        border-color: $btn-secundary-hover-border;
+        background-color: $btn-secundary-hover-color;
     }	
 }

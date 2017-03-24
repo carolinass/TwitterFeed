@@ -1,7 +1,33 @@
 // Basic colors
-$dark-gray: #8F9294;
+$base-colors: (
+	'white'						: #FFFFFF,
+	'dark-gray'					: #8F9294,
+	'medium-gray'				: #B5B9BB,
+	'super-light-gray'			: #F5F8FA,
+	'light-gray'				: #E6ECF0,
+	'light-blue'				: #E8F4F9,
+	'dark-purple'				: #381C3A
+);
 
+@function base-color($key) {
+    @return map-get($base-colors, $key);
+}
 
 // Website's colors
-$hover-btn-color: $dark-gray;
-$footer-font-color: $dark-gray;
+$background-color: base-color('super-light-gray');
+$hover-btn-color: base-color('dark-gray');
+$footer-font-color: base-color('dark-gray');
+$user-box-back: base-color('light-blue');
+$feed-border: base-color('light-gray');
+$tweet-box-back: base-color('white');
+$login-font-color: base-color('white');
+
+// Components' colors
+$btn-leading-border: base-color('white');
+$btn-leading-color: base-color('white');
+$btn-secundary-border: base-color('white');
+$btn-secundary-color: base-color('white');
+$btn-secundary-hover-border: base-color('medium-gray');
+$btn-secundary-hover-back: base-color('medium-gray');
+$btn-secundary-hover-color: base-color('dark-purple');
+$navbar-text-color: base-color('white');
