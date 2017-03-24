@@ -158,6 +158,8 @@ footer {
         vertical-align: top; }
       .twitter-feed .home-user .user-box .media-body .btn-tweet {
         margin-top: 10px; }
+      .twitter-feed .home-user .user-box .media-body .form-group {
+        margin: 0; }
   .twitter-feed .home-timeline .single-tweet-box {
     padding: 10px;
     border: 1px solid #E6ECF0;
