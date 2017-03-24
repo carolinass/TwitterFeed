@@ -34,6 +34,7 @@ app.controller("FeedCtrl", [ '$http', '$state', '$localStorage', '$rootScope', '
 		    "statuses_homeTimeline",
 		    {"count" : 50},
 		    function (reply, rate, err) {
+		    	console.log(reply);
 		    	$rootScope.$apply(self.feed = reply);
 		    }
 		)

@@ -5,7 +5,8 @@ var del = require( 'del' ),
     gulp = require( 'gulp' ),
     sass = require( 'gulp-sass' ),
     connect = require('gulp-connect'),
-    mkdirp = require( 'mkdirp' );
+    mkdirp = require( 'mkdirp' ),
+    karmaServer = require('karma').Server;
 
 // Control variables
 var paths = {
@@ -37,6 +38,12 @@ gulp.task( 'sass-styles:watch', function ( ) {
         paths.styles, [ 'sass-styles' ]
     );
 } );
+
+gulp.task('test', function (done) {
+    new karmaServer({
+        configFile: __dirname + '/karma.conf.js'
+    }, done).start();
+});
 
 gulp.task('webserver', function() {
   connect.server({

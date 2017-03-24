@@ -8,7 +8,7 @@
 			<div class="col-md-12">
 				<div class="media user-box">
 				  	<div class="media-left">
-					    <a href="#">
+					    <a ng-href="http://twitter.com/{{ctrl.user.screen_name}}" target="_blank">
 					      <img  class="media-object" 
 					      		ng-src="{{ctrl.user.profile_image_url}}" 
 					      		alt="User profile">
@@ -47,7 +47,7 @@
 			<div class="col-md-12">
 				<div class="media single-tweet-box" ng-repeat="tweet in ctrl.feed">
 				  	<div class="media-left">
-					    <a href="#">
+					    <a ng-href="http://twitter.com/{{tweet.user.screen_name}}" target="_blank">
 					      <img  class="media-object" 
 					      		ng-src="{{tweet.user.profile_image_url}}" 
 					      		alt="User profile">
