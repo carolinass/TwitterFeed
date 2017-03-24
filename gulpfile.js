@@ -4,6 +4,7 @@
 var del = require( 'del' ),
     gulp = require( 'gulp' ),
     sass = require( 'gulp-sass' ),
+    connect = require('gulp-connect'),
     mkdirp = require( 'mkdirp' );
 
 // Control variables
@@ -36,3 +37,11 @@ gulp.task( 'sass-styles:watch', function ( ) {
         paths.styles, [ 'sass-styles' ]
     );
 } );
+
+gulp.task('webserver', function() {
+  connect.server({
+    port: 8000
+  });
+});
+ 
+gulp.task('run', ['sass-styles', 'webserver']);
