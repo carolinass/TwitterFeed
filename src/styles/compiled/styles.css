@@ -4,8 +4,20 @@ body {
   background-color: #F5F8FA; }
 
 .centralize {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center; }
 
 .full-height {
@@ -49,19 +61,37 @@ body {
       font-size: 1.4em; }
     .material-navbar .container > .navbar-header > .navbar-brand i {
       margin-left: 5px; }
-  .material-navbar .container > .navbar-text.navbar-right {
+  .material-navbar .navbar-text.navbar-right {
     height: 70px;
     margin: 0px;
     display: inline-flex;
     align-items: center; }
-    .material-navbar .container > .navbar-text.navbar-right span {
+    .material-navbar .navbar-text.navbar-right p {
       color: #FFFFFF;
       font-weight: 500;
       text-transform: uppercase;
       font-size: 0.8em;
-      cursor: pointer; }
-      .material-navbar .container > .navbar-text.navbar-right span:hover {
-        text-decoration: underline; }
+      cursor: pointer;
+      margin: 0; }
+    .material-navbar .navbar-text.navbar-right:hover {
+      text-decoration: underline; }
+  .material-navbar .navbar-toggle {
+    margin-top: 18px;
+    margin-bottom: 18px; }
+  .material-navbar #tweet-navbar-collapse[aria-expanded="true"] {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px; }
+    .material-navbar #tweet-navbar-collapse[aria-expanded="true"]:hover {
+      background-color: rgba(0, 0, 0, 0.9); }
+    .material-navbar #tweet-navbar-collapse[aria-expanded="true"] .navbar-text {
+      width: 100%; }
+    .material-navbar #tweet-navbar-collapse[aria-expanded="true"] p {
+      cursor: pointer;
+      margin: 0px;
+      height: 100%;
+      width: 100%;
+      line-height: 65px;
+      padding: 0 20px; }
 
 footer {
   width: 100%;
@@ -104,6 +134,8 @@ footer {
     background: transparent;
     border: 1px solid #FFFFFF;
     color: #FFFFFF; }
+  .welcome .landing-banner {
+    height: 600px; }
 
 .twitter-feed {
   padding: 0 0 50px 0;

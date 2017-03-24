@@ -4,9 +4,17 @@ body {
 }
 
 .centralize {
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
 	display: flex;
-  	justify-content: center;
-  	align-items: center;
+  	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
 }
 
 .full-height {

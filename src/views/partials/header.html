@@ -5,16 +5,24 @@
 				<span class="brand-text">tweet.it</span>
 				<i class="fa fa-twitter" aria-hidden="true"></i>
 			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tweet-navbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
 		</div>
-		<div class="navbar-text navbar-right">
-			<span ng-if="!ctrl.isAuthenticated()" 
-				class="navbar-link" 
-				ng-click="ctrl.codebirdAuthentication()"> Sign in
-			</span>
-			<span ng-if="ctrl.isAuthenticated()" 
-				class="navbar-link" 
-				ng-click="ctrl.signOut()"> Sign Out
-			</span>
+		<div class="collapse navbar-collapse" id="tweet-navbar-collapse">
+			<div class="navbar-text navbar-right">
+				<p ng-if="!ctrl.isAuthenticated()" 
+					class="navbar-link" 
+					ng-click="ctrl.codebirdAuthentication()"> Sign in
+				</p>
+				<p ng-if="ctrl.isAuthenticated()" 
+					class="navbar-link" 
+					ng-click="ctrl.signOut()"> Sign Out
+				</p>
+			</div>
 		</div>
 	</div>
 </nav>
